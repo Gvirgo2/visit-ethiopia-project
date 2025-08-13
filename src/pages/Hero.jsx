@@ -1,5 +1,7 @@
 import { useAuth } from "../contexts/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import HeroSection from "../components/HeroSection"
+import TourCard from "../components/TourCard"
 
 const Hero = () => {
   const { user, logout } = useAuth();
@@ -35,15 +37,23 @@ const Hero = () => {
         </div>
       </nav>
 
-      {/* Hero Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 text-center">
-        <h1 className="text-6xl font-bold text-white mb-6 drop-shadow-lg">
-          Discover Ethiopia
-        </h1>
-        <p className="text-xl text-white mb-8 max-w-2xl drop-shadow-lg">
-          Experience the ancient wonders, vibrant culture, and breathtaking landscapes 
-          of the cradle of humanity
-        </p>
+        {/* hero section */}
+        <HeroSection />
+        {/*  top tour section */}
+        <section className="top-tour-section">
+          <h2>Our Top Tours</h2>
+          <div className="top-tour-card-container">
+            <TourCard rating={4.5} reviewCount={120} title="Ertale" />
+            <TourCard rating={4.5} reviewCount={120} title="Ertale" />
+            <TourCard rating={4.5} reviewCount={120} title="Ertale" />
+            <TourCard rating={4.5} reviewCount={120} title="Ertale" />
+            <TourCard rating={4.5} reviewCount={120} title="Ertale" />
+            <TourCard rating={4.5} reviewCount={120} title="Ertale" />
+            <TourCard rating={4.5} reviewCount={120} title="Ertale" />
+            <TourCard rating={4.5} reviewCount={120} title="Ertale" />
+          </div>
+          <Link to="./tours" className="btn-primary">Explore More</Link>
+        </section>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full">
           {/* Featured Destinations */}
